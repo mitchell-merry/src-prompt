@@ -23,15 +23,15 @@ export async function getLeaderboardFromUser(): Promise<SRC.LeaderboardPartial> 
     // get level if applicable
     let level: string | undefined = undefined;
     if(type == 'l') {
-        const levels = await SRC.getGameLevels(game);
+        const levels = await SRC.getGameLevels(game, {}, { log: false });
 
         level = chooseFromList(levels, "level");
     }
 
     // get category
     const categories: SRC.Category<"variables">[] = await (level 
-		? SRC.getLevelCategories<"variables">(level, { embed: "variables" })
-		: SRC.getFullGameCategories<"variables">(game, { embed: "variables" }));
+		? SRC.getLevelCategories<"variables">(level, { embed: "variables" }, { log: false })
+		: SRC.getFullGameCategories<"variables">(game, { embed: "variables" }, { log: false }));
 
     const category = chooseFromList(categories, "category");
 	
