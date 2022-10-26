@@ -2,7 +2,7 @@ import * as SRC from "src-ts";
 import * as PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
-export function chooseFromList(list: { id: string; name: string; }[], itemName: string) {
+function chooseFromList(list: { id: string; name: string; }[], itemName: string) {
     list.forEach((item, i) => {
         console.log(`${i+1}. ${item.name} (${item.id})`);
     });
