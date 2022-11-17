@@ -46,7 +46,7 @@ function getBoardType(game: SRC.Game<"categories.variables,levels">): SRC.Catego
 
 export async function getLeaderboardFromUser(asPartial: false): Promise<SelectedLeaderboard>;
 export async function getLeaderboardFromUser(asPartial: true): Promise<SRC.LeaderboardPartial>;
-export async function getLeaderboardFromUser(asPartial: boolean): Promise<SRC.LeaderboardPartial | SelectedLeaderboard>
+export async function getLeaderboardFromUser(asPartial: boolean = false): Promise<SRC.LeaderboardPartial | SelectedLeaderboard>
 {
 	// fetch game data
     const gameId = prompt("Enter a game id or abbreviation: ") ?? "";
