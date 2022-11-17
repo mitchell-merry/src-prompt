@@ -66,7 +66,7 @@ export async function getLeaderboardFromUser(asPartial: boolean = false): Promis
 	
 	// get subcategories that are applicable to the chosen category
     const variables = categories.find(c => c.id === categoryId)!.variables.data;
-	const subcategories = SRC.filterVariablesForLevel(variables, levelId).filter(SRC.variableIsSubcategory);
+	const subcategories = SRC.filterApplicableVariables(variables, categoryId, levelId).filter(SRC.variableIsSubcategory);
 
     const subcatValues = subcategories.map(subcat => {
         console.log(`For subcategory ${subcat.name}:`);
